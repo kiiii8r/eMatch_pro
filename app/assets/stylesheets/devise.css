@@ -1,0 +1,58 @@
+.contents {
+  text-align: center;
+  padding-top: 130px;
+  height: 600px;
+  overflow: auto;
+  scroll-snap-type: mandatory;
+}
+
+.contents-indication {
+  scroll-snap-align: start;
+  height: 55vh;
+}
+
+.form-group {
+  padding: 20px;
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+.form-text-wrap {
+  padding: 10px; 
+}
+
+.input-default {
+  width: 200px;
+}
+
+.login-btn {
+  margin: 10px;
+}
+
+.input-age-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-age {
+  padding: 3px;
+}
+
+.registrater-btn {
+  padding: 10px 30px;
+  background-color: lightgray; 
+  margin-bottom: 15px;
+}
+
+.indication {
+  margin: 5px;
+  font-size: 20px;
+}
+
+.set-age {
+  opacity: 0;
+  height: 5px;
+}

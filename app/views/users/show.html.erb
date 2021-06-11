@@ -1,0 +1,228 @@
+<%= render "shared/contents-header" %>
+
+<div class ='main-contents'>
+
+  <div class="user-show-name">
+
+    <% if current_user.id == @user[:id] %>
+
+      <h1>My page</h1>
+
+    <% else %>
+
+      <h1>User page</h1>
+
+    <% end %>
+
+    </div>
+
+    <div class="user-show">
+      <div class="user-box">
+
+        <div class="user-name-box">
+
+            <h2><%= @user.nickname %>さん
+
+            <%if @relationships.present? %>
+
+            <p class="follow-value">(フォロー中)</p>
+
+            <%end%>
+
+            </h2>
+
+        </div>
+
+        <div class='user-img-content'>
+        
+          <%if @user.profile.image.present? %>
+
+              <%= image_tag @user.profile.image, class: "user-show-img" if @user.profile.image.attached? %>
+
+          <% elsif @user.gender == "male" %>
+
+            <%= image_tag 'mens_silhouette.png', size: "400x400", class: "user-show-img" %>
+
+          <% else %>
+
+            <%= image_tag 'radies_silhouette.png', size: "400x400", class: "user-show-img" %>
+
+          <% end %>
+      
+        </div>
+
+        <div class="user-btn">
+
+          <% if current_user.id == @user[:id] %>
+
+            <div class="my-show-btn">
+
+              <div class="follow-count">
+                <div class="follow">follow:<%= @follow %></div>
+                <div class="follow">follower:<%= @follower %></div>
+              </div>
+
+              <%= link_to 'プロフィールの編集', edit_user_profile_path(@user[:id]), class: "profile-btn" %>
+
+            </div>
+
+          <% elsif @room_number.blank? %>
+
+          <div class="show-btn">
+
+            <div class="second-btn">
+
+              <div class="follow-count">
+                <div class="follow">follow:<%= @follow %></div>
+                <div class="follow">follower:<%= @follower %></div>
+              </div>
+
+              <div class="follow-btn">
+
+                <%= render "relationships/follow_button", user: @user %>
+
+              </div>
+            </div>
+
+            <div class="chat-btn">
+
+            <%= form_with model: @room, url: rooms_path,  local: true do |f|%>
+
+              <%= f.submit "メッセージ", class: 'new-chat-btn'%>
+
+              <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
+
+              <input name="room[user_ids][]" type="hidden" value=<%= @user.id %>>
+
+              <input name="partner_id[]" type="hidden" value=<%= @user.id %>>
+
+            <% end %>
+
+            </div>
+          </div>
+
+          <%= flash[:success] %>
+          <%= flash.now[:alert] %>
+
+          <% else %>
+
+  
+          <div class="show-btn">
+
+            <div class="second-btn">
+
+              <div class="follow-count">
+                <div class="follow">follow:<%= @follow %></div>
+                <div class="follow">follower:<%= @follower %></div>
+              </div>
+
+              <div class="follow-btn">
+
+                <%= render "relationships/follow_button", user: @user %>
+
+              </div>
+            </div>
+
+            <div class="chat-btn">
+
+                <%= link_to 'メッセージ', room_path(@room_number,partner_id: @user.id ), class: "user-chat-btn" %>
+
+            </div>
+          </div>
+
+          <%= flash[:success] %>
+          <%= flash.now[:alert] %>
+
+          <% end %>
+        </div>
+
+        <div class="user-explain-box">
+          <div class="user-explain">
+            <div class="explain-title">自己紹介</div>
+          </div>
+          <div class="explain-box">
+            <div class="explain-text"><%= @profile.introduction %></div>
+          </div>
+        </div>
+        
+
+      </div>
+      
+      <div class="user-detail">
+        <div class="detail-contents">
+          <div class="detail-list">
+            <div class="detail-name">年齢：</div>
+            <div class="detail-value"><%= @user.age %></div>
+          </div>
+            
+          <div class="detail-list">
+            <div class="detail-name">性別：</div>
+            <div class="detail-value"><%= @user.gender %></div>
+          </div>
+            
+          <div class="detail-list">
+            <div class="detail-name">住み：</div>
+            <div class="detail-box">
+              <div class="detail-value"><%= @profile.prefecture.name %></div>
+            </div>
+          </div>
+
+          <div class="detail-list">
+            <div class="detail-name">主な役割：</div>
+            <div class="detail-box">
+              <div class="detail-value"><%= @profile.role.name %></div>
+            </div>
+          </div>
+
+          <div class="detail-list">
+            <div class="detail-name">使用言語：</div>
+            <div class="detail-box">
+              <div class="detail-value"><%= @profile.language %></div>
+            </div>
+          </div>
+
+          <div class="detail-list">
+            <div class="detail-name">目標：</div>
+            <div class="detail-box">
+              <div class="detail-value"><%= @profile.target %></div>
+            </div>
+          </div>
+
+          <div class="detail-list">
+            <div class="detail-name">趣味：</div>
+            <div class="detail-box">
+              <div class="detail-value"><%= @profile.hobby %></div>
+            </div>
+          </div>
+
+          <div class="detail-list">
+            <div class="detail-name">長所：</div>
+            <div class="detail-box">
+              <div class="detail-value"><%= @profile.pros %></div>
+            </div>
+          </div>
+
+          <div class="detail-list">
+            <div class="detail-name">短所：</div>
+            <div class="detail-box">
+              <div class="detail-value"><%= @profile.defect %></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <% if current_user.id != @user[:id] %>
+
+      <div class="option">
+          <div class="report-btn">
+            <span>- 通報 -</span>
+          </div>
+        </div>
+
+    <% end %>
+
+  </div>
+</div>
+
+<%= render "shared/contents-footer" %>

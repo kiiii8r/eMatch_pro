@@ -1,0 +1,23 @@
+<% unless current_user == user %>
+
+  <% if current_user.following?(user) %>
+
+    <%= form_with url: relationship_path, method: :delete, local: true do |f| %>
+
+      <%= f.hidden_field :follow_id, value: user.id %>
+
+      <%= f.submit 'フォロー解除', class: "follow-input" %>
+
+    <% end %>
+
+  <% else %>
+
+    <%= form_with url: relationships_path, local: true do |f| %>
+
+      <%= f.hidden_field :follow_id, value: user.id %>
+
+      <%= f.submit 'フォロー', class: "follow-input" %>
+
+    <% end %>
+  <% end %>
+<% end %>

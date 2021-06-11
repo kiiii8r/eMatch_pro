@@ -1,0 +1,158 @@
+<%= render "shared/contents-header" %>
+
+<div class ='main-contents'>
+
+  <div class='user-list-contents'>
+    <input id="s-menu" type="checkbox" />
+    <label for="s-menu" class="s-back"></label> 
+    <label for="s-menu" class="s-open">></label>
+    <div class="side-menu">
+      <label for="s-menu" class="s-close"></label>
+
+      <div class='search-contents'>
+
+        <h2 class='search-title'>Search</h2>
+
+        <%= search_form_for @search do |f| %>
+
+          <div class='search-lists'>
+            <h3 class='search-name'>◆名前で検索</h3>
+
+            <div class='search-genre'>
+              <%= f.label :nickname_cont, 'ユーザー名' %>
+              <%= f.text_field :nickname_cont %>
+            </div>
+
+            <div class='search-btn'>
+              <%= f.submit '検索' %>
+            </div>
+          </div>
+
+        <% end %>
+
+        <%= search_form_for @p, url: users_search_path do |f| %>
+
+          <div class='search-lists'>
+            <h3 class='search-name'>◆絞り込みで検索</h3>
+
+            <div class='search-genre'>
+              <%= f.label :gender_eq, '性別：' %>
+              <%= f.collection_select :gender_eq, @user_gender, :gender, :gender,  include_blank: '指定なし' %>
+            </div>
+
+            <div class='search-genre'>
+              <%= f.label :profile_role_id_eq, '役割：' %>
+              <%= f.collection_select(:profile_role_id_eq, Role.all, :id, :name, { include_blank: '指定なし' }, {class:"select-box", id:"role"}) %>
+            </div>
+
+            <div class='search-genre'>
+              <%= f.label :profile_language_cont, '使用言語' %>
+              <%= f.text_field :profile_language_cont %>
+            </div>
+
+            <div class='search-genre'>
+              <%= f.label :profile_prefecture_id_eq, '都道府県：' %>
+              <%= f.collection_select(:profile_prefecture_id_eq, Prefecture.all, :id, :name, { include_blank: '指定なし' }, {class:"select-box", id:"prefecture"}) %>
+            </div>
+
+            <div class='search-btn'>
+              <%= f.submit '検索' %>
+            </div>
+          </div>
+
+        <% end %>
+
+        <h3 class='follow-title'>- follow list -</h3>
+
+        <div class="follow-contents">
+
+          <%= render partial: "relationships/relationship", collection: @relationships %>
+
+        </div>
+      </div>
+    </div>
+
+    <div class='user-contents'>
+      <h2 class='title'>User list</h2>
+
+      <ul class='user-list'>
+
+        <% if @results.length !=0 %>
+
+          <% @results.each do |result| %>
+
+            <% unless current_user.id == result.id %>
+
+              <li class='list'>
+
+                <%= link_to user_path(result.id) do %>
+
+                  <div class='list-content'>
+
+                    <%if result.profile.image.present? %>
+
+                       <%= image_tag result.profile.image, class: "list-img" if result.profile.image.attached? %>
+
+                    <% elsif result.gender == "male" %>
+
+                      <%= image_tag 'mens_silhouette.png', class: "list-img" %>
+
+                    <% else %>
+
+                      <%= image_tag 'radies_silhouette.png',  class: "list-img" %>
+
+                    <% end %>
+
+                  </div>
+
+                  <div class='user-info'>
+
+                    <div class='list-upper'>
+                    <div class='list-name'>
+                      <div class='list-title'>名前</div>
+                      <%= result.nickname %>
+                    </div>
+
+                    <div class="sub-list">
+
+                      <div class='list-age'>
+                        <div class='list-title'>年齢</div>
+                        <%= result.age %>歳
+                      </div>
+
+                      <div class='list-role'>
+                        <div class='list-title'>主な役割</div>
+                        <%= result.profile.role.name %>
+                      </div>
+                    </div>
+                  </div>
+            
+                  <div class='list-lower'>
+                    <div class='list-language'>
+                      <div class='lower-list-title'><span class='lower-title'>使用言語</span></div>
+                      <div class="language-content"><%= result.profile.language %></div>
+                    </div>
+                  </div>
+
+                  </div>
+
+                <% end %>
+
+              </li>
+
+            <% end %>
+
+          <% end %>
+
+        <% else %>
+
+          <div class='no-users'>該当するユーザーは存在しませんでした。</div>
+
+        <% end %>
+
+      </ul>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/contents-footer" %>

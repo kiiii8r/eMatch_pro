@@ -1,0 +1,72 @@
+<%# CSS・・・assets/stylesheets/shared/header.css %>
+<header>
+  <div class='nav'>
+    <div class='nav-upper'>
+        <ul class='lists-upper'>
+          <li><a class="top-logo" href="#">🌙</a></li>
+          <div class="top-list">
+            <input id="menu" type="checkbox" />
+            <label for="menu" class="open">
+              <i class="fas fa-bars"></i>
+            </label>
+            <label for="menu" class="back"></label>
+            <aside>
+              <label for="menu" class="close">✖</label>
+              <li><a class="top-btn" href="#">1</a></li> 
+              <li><a class="top-btn" href="#">2</a></li>
+              <li><a class="top-btn" href="#">3</a></li> 
+              <li><a class="top-btn" href="#">4</a></li>
+              <li><a class="top-btn" href="#">5</a></li> 
+              <li><a class="top-btn" href="#">6</a></li>
+              <li><a class="top-btn" href="#">7</a></li>
+              <li><a class="top-btn" href="#">8</a></li>
+            </aside>
+          </div>
+          <li><a class="top-second-logo" href="#">🌚</a></li> 
+        </ul>
+    </div>
+    <div class='nav-lower-lock' id='nav-lower'>
+      <div class='nav-lower'>
+        <div class='lower-contents'>
+
+          <%= link_to 'eMatch Pro', root_path, class: 'header-title' %>
+
+          <ul class='lists-lower'>
+
+            <input class="menu-v" id="menu-v" type="checkbox" />
+            <label for="menu-v" class="open-v">
+              <i class="fas fa-angle-down"></i>
+            </label>
+            <label for="menu-v" class="back-v"></label>
+
+              <div class="v-menu-list">
+                <label for="menu-v" class="close-v"></label>
+
+                <li><%= link_to 'Top page', root_path, class: "header-link" %></li>
+
+                <li><%= link_to 'sign up',  new_user_registration_path, class: "header-link" %></li> 
+
+                <li><%= link_to 'Log in', user_session_path, class: "header-link" %></li> 
+
+              </div>
+
+            <%= link_to  user_facebook_omniauth_authorize_path, method: :post do %>
+              <i class="fab fa-facebook-f"></i>
+            <% end %>
+
+            <%= link_to user_google_oauth2_omniauth_authorize_path, method: :post do %>
+              <i class="fab fa-google"></i>
+            <% end %>
+
+            <%= link_to user_twitter_omniauth_authorize_path, method: :post do %>
+              <i class="fab fa-twitter"></i>
+            <% end %>
+
+            <li class="blue-point"><%= link_to '自己紹介', 'https://kii-portfolio.com/', class: "point-font" %></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

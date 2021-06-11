@@ -1,0 +1,109 @@
+.front-show {
+  height: 600px;
+  text-align: center;
+}
+
+.back-signup {
+  position: absolute;
+  width: 88%;
+  font-weight: 600;
+  font-size: 80px;
+  padding-top: 130px;
+  z-index: 100;
+  opacity: 0;
+  transition: 1s;
+  padding-bottom: 400px;
+  align-content: center;
+}
+
+.back-signup:hover{
+  z-index: 600;
+  background-color: whitesmoke;
+  opacity: 1;
+}
+
+.back-signup a {
+  border-radius: 50px;
+  color: white;
+  padding: 30px;
+  background-color: rgb(39, 99, 211);
+}
+
+.match-front {
+  position: relative;
+  transition: 2s;
+  z-index: 500;
+  height: 500px;
+  padding-top: 30px;
+}
+
+.match-front:hover {
+  opacity: 0;
+  z-index: 0;
+}
+
+.match-title {
+  position: fixed;
+  width: 84vw;
+  font-size: 150px;
+  font-weight: 800;
+  color: black;
+  background-color: whitesmoke;
+  padding-bottom: 300px;
+}
+
+@media screen and (max-width: 1024px) { 
+  .front-show {
+    height: 550px;
+  }
+
+  .match-front {
+    height: 500px;
+    font-size: 600px;
+  }
+
+  .match-title {
+    width: 92vw;
+    font-size: 130px;
+    font-weight: 900;
+  }
+}
+
+@media screen and (max-width: 812px) { 
+
+  .front-show:before {
+    content: "↓ touch! ↓";
+  }
+
+  .front-show {
+    height: 520px;
+    text-align: center;
+  }
+
+  .back-signup {
+    width: 84vw;
+    font-weight: 400;
+    font-size: 40px;
+    padding-top: 60px;
+    padding-bottom: 360px;
+  }
+  
+
+  .back-signup a {
+    border-radius: 50px;
+    padding: 20px;
+  }
+
+  .match-front {
+    height: 400px;
+    margin-top: px;
+    font-size: large;
+  }
+
+  .match-title {
+    width: 84vw;
+    font-size: 76px;
+    font-weight: 600;
+  }
+
+}
