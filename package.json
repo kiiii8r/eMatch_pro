@@ -5,10 +5,34 @@
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
-    "turbolinks": "^5.2.0"
+    "@rails/webpacker": "5.3.0",
+    "turbolinks": "^5.2.0",
+    "webpack": "^4.46.0"
   },
   "version": "0.1.0",
   "devDependencies": {
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.2"
-  }
+  },
+  "description": "![title](https://user-images.githubusercontent.com/68574158/98359174-1f152100-206b-11eb-836c-46871050f54d.png \"title\")",
+  "main": "babel.config.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiiii8r/eMatch_pro.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kiiii8r/eMatch_pro/issues"
+  },
+  "homepage": "https://github.com/kiiii8r/eMatch_pro#readme"
 }
