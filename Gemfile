@@ -68,7 +68,3 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem "omniauth-rails_csrf_protection"
 
-
-group :production do
-  gem 'rails_12factor'
-end
