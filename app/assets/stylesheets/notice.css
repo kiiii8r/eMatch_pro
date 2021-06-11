@@ -1,0 +1,168 @@
+.notice-page {
+  width: 70%;
+  text-align: center;
+  margin: 30px calc((100% - 70%)/2) ;
+}
+
+.notice-contents {
+  margin-top: -80px;
+  font-size: 15px;
+}
+
+.moderate-font {
+  font-size: 12px;
+}
+
+.notice-list {
+  display: flex;
+  justify-content: center;
+}
+
+.notice-block {
+ display: flex;
+ padding: 10px 50px 10px 50px;
+ border-bottom: 1px gray dotted;
+}
+
+.notice-right {
+ margin-top: -6px;
+ margin-left: 30px;
+ width: 30vw;
+}
+
+.new-message {
+  overflow: auto;
+  scroll-snap-type: mandatory;
+  scroll-snap-align: start;
+  height: 70px;
+  margin-top: -22px;
+}
+
+.visiter-img {
+  height: 100px;
+  width: 100px;
+}
+
+.notice-message {
+  display: inline-block;
+  max-width: 300px;
+  word-wrap: break-word;
+  font-size: 13px;
+}
+
+.relation-name {
+  font-size: 13px;
+}
+
+.notice-image {
+  max-height: 70px;
+  max-width: 100px;
+}
+
+@media screen and (max-width: 1024px) { 
+
+  .notice-page {
+    width: 90%;
+    text-align: center;
+    margin: 30px calc((100% - 90%)/2) ;
+  }
+
+  .notice-content {
+    font-size: 13px;
+  }
+
+  .visiter-img {
+    height: 90px;
+    width: 90px;
+  }
+
+  .new-message {
+    height: 60px;
+  }
+
+  .notice-image {
+    max-height: 60px;
+    max-width: 100px;
+  }
+  
+  .notice-right {
+    margin-top: -6px;
+    margin-left: 30px;
+    width: 35vw;
+   }
+
+}
+
+@media screen and (max-width: 812px) { 
+
+  .notice-page {
+    width: 90%;
+    text-align: center;
+    margin: 30px calc((100% - 90%)/2) ;
+  }
+
+
+  .notice-content {
+    font-size: 11px;
+  }
+
+  .notice-block {
+    padding: 10px 50px 10px 50px;
+   }
+
+  .visiter-img {
+    height: 60px;
+    width: 60px;
+    margin-right: -10px;
+    border-radius: 10%;
+  }
+
+  .notice-contents {
+    margin-top: -80px;
+    font-size: 15px;
+  }
+
+  .moderate-font {
+    font-size: 10px;
+  }
+
+  .notice-right {
+    margin-left: 30px;
+    width: 30vw;
+  }
+
+  .notice-message {
+    display: inline-block;
+    max-width: 200px;
+    word-wrap: break-word;
+  }
+
+  .notice-image {
+    max-height: 8vw;
+    max-width: 8vw;
+  }
+
+  .notice-right {
+    width: 53vw;
+  }
+
+  .relation-name {
+    font-size: 11px;
+  }
+
+  .notice-message {
+    max-width: 350px;
+    word-wrap: break-word;
+    font-size: 12px;
+  }
+
+  .new-message {
+    height: 55px;
+    margin-top: -25px;
+  }
+
+  .notice-image {
+    max-height: 60px;
+    max-width: 100px;
+  }
+}

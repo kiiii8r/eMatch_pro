@@ -1,0 +1,21 @@
+<%= render "shared/contents-header" %>
+  
+<div class='main-contents'>
+  <div class='contents'>
+    
+    <div class='account-page user-form'>
+        
+      <%= form_with model: @profile, url: user_profiles_path(params[:user_id]), local: true do |f|%>
+
+        <%= render 'profile', f: f %>
+
+        <%= f.submit "登録完了" ,class:"registration-btn" %>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+
+<%= render "shared/contents-footer" %>

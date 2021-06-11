@@ -1,0 +1,268 @@
+.user-show-name {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.user-name-box {
+  background-color: lightgray;
+  border: 1px gray solid;
+}
+
+.follow-value {
+  display: inline-block;
+  font-size: 15px;
+}
+
+.user-show {
+  display: flex;
+  text-align: center;
+  height: 600px;
+  justify-content: space-around;
+}
+
+.user-box {
+  width: 40%;
+  margin: 20px;
+}
+
+.user-img-content {
+  padding: 10px;
+  background-color: white;
+  border: 1px gray solid;
+}
+
+.user-show-img {
+  width: 22vw;
+  height: 22vw;
+}
+
+.user-btn {
+  padding: 10px 0;
+}
+
+.show-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.my-show-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.second-btn {
+  display: flex;
+}
+
+.follow-count {
+  display: flex;
+  font-size: small;
+  padding-right: 1%;
+}
+
+.follow {
+  padding: 2px;
+}
+
+.profile-btn {
+  color: black;
+  background-color: white;
+  border: 2px rgba(0, 0, 0, 0.726) solid;
+  padding: 3px 5px;
+  margin-left: 1vw;
+  display: block;
+  font-size: 12px;
+}
+
+.new-chat-btn {
+  color: black;
+  background-color: white;
+  border: 2px rgba(0, 0, 0, 0.726) solid;
+  padding: 3px 5px;
+  margin-left: 1vw;
+  display: block;
+  font-size: 12px;
+} 
+
+.user-chat-btn {
+  color: black;
+  background-color: white;
+  border: 2px rgba(0, 0, 0, 0.726) solid;
+  padding: 3px 5px;
+  margin-left: 1vw;
+  display: block;
+  font-size: 12px;
+} 
+
+.follow-input {
+  background-color: white;
+  width: 93px;
+}
+
+.user-explain {
+  font-weight: bold;
+  font-size: large;
+}
+
+.explain-title {
+  display: inline-block;
+  padding: 0 13px;
+  border-bottom: 1px lightgray solid;
+}
+
+.explain-box {
+  scroll-snap-align: start;
+  overflow: auto;
+}
+
+.explain-text {
+  margin: 3px;
+  font-size: 18px;
+  scroll-snap-type: mandatory;
+  height: 10vh;
+}
+
+.user-detail {
+  height: 700px;
+  width: 45%;
+}
+
+.detail-contents {
+  align-items: center;
+  padding-top: 10px;
+}
+
+.detail-list {
+  display: flex;
+  padding: 20px 13px 0px 13px;
+  font-size: 15px;
+  border-bottom: 1px lightgray solid; 
+}
+
+.detail-name {
+  display: inline-block;
+  width: 25%;
+  text-align: right ;
+  font-weight: 600;
+}
+
+.detail-box {
+  scroll-snap-align: start;
+  overflow: auto;
+}
+
+.detail-value {
+  display: block;
+  text-align: center;
+  width: 30vw;
+  scroll-snap-type: mandatory;
+  height: 2vw;
+}
+
+.option {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.report-btn {
+  color: red;
+  font-size: large;
+  margin: 20px;
+}
+
+@media screen and (max-width: 1024px) { 
+  .user-show {
+    height: 510px;
+  }
+
+  .user-show-img {
+    width: 23vw;
+    height: 23vw;
+  }
+
+  .detail-value {
+    height: 3vw;
+  }
+
+
+}
+
+@media screen and (max-width: 812px) { 
+  .user-show {
+    display: block;
+    height: 1000px;
+    width: 100%;
+  }
+
+  .user-name-box {
+    font-size: 12px;
+  }
+
+  .follow-value {
+    font-size: 11px;
+  }
+
+  .user-show-img {
+    width: 35vw;
+    height: 35vw;
+  }
+
+  .follow-count {
+    justify-content: center;
+  }
+
+  .second-btn {
+    justify-content: center;
+  }
+
+  .show-btn {
+    display: block;
+  }
+
+  .new-chat-btn {
+    padding: 2px 20px;
+  }
+
+  .user-chat-btn {
+    width: 60px;
+  }
+
+  .chat-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .chat-btn a {
+    font-size: 12px;
+    padding: 2px 25px;
+  }
+
+  .detail-contents  {
+    padding-top: 0px;
+  }
+
+  .detail-list {
+    font-size: 11px;
+  }
+
+  .detail-name {
+    margin-left:0px;
+  }
+
+  .detail-value {
+    height: 4vw;
+    width: 45vw;
+  }
+
+  .user-box {
+    margin-left: calc(100% - 90%);
+    width: 80%;
+  }
+
+  .user-detail {
+    margin-left: calc(100% - 90%);
+    width: 80%;
+  }
+
+}

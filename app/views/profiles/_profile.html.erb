@@ -1,0 +1,81 @@
+<div class="img-upload">
+  <label class="form-text">サムネ画像</label>
+
+  <div class="click-upload">
+    <p>↓クリックしてファイルをアップロード</p>
+    
+    <%= f.file_field :image, class: "image-btn", id:"user-image" %>
+
+  </div>
+</div>
+
+<div class="form-group">
+  <div class='form-text-wrap'>
+    <label class="form-text">紹介文</label>
+  </div>
+    
+  <%= f.text_area :introduction, class:"input-field-default", id:"introduction", placeholder:"記入欄" %>
+
+</div>
+
+<div class="form-group">
+  <div class='form-text-wrap'>
+    <label class="form-text">趣味</label>
+  </div>
+  
+  <%= f.text_field :hobby, class:"input-default", id:"hobby", placeholder:"記入欄" %>
+</div>
+
+<div class="form-group">
+  <div class='form-text-wrap'>
+    <label class="form-text">目的</label>
+  </div>
+
+  <%= f.text_field :target, class:"input-default", id:"target", placeholder:"記入欄" %>
+
+</div>
+
+<div class="form-group">
+  <div class='form-text-wrap'>
+    <label class="form-text">都道府県</label>
+  </div>
+
+  <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
+  
+</div>
+
+<div class="form-group">
+  <div class='form-text-wrap'>
+    <label class="form-text">使用言語</label>
+  </div>
+
+  <%= f.text_area :language, rows: 6,  cols: 40, class:"input-field-default", id:"language", placeholder:"その他使用言語" %>
+
+  <div class="language-explanation">見つけてもらいやすいような記入をしましょう。<br>(記入例：HTML, CSS, Ruby, PHP, Java, JavaScript, Python...)</div>
+
+</div>
+
+<div class="form-group">
+  <div class='form-text-wrap'>
+    <label class="form-text">主な役割</label>
+  </div>
+
+  <%= f.collection_select(:role_id, Role.all, :id, :name, {}, {class:"select-box", id:"role"}) %>
+
+</div>
+
+<div class="form-group">
+  <div class='form-text-wrap'>
+    <label class="form-text">長所</label>
+  </div>
+
+  <%= f.text_field :pros, class:"input-default", id:"pros", placeholder:"記入欄" %>
+
+</div>
+  
+<div class="form-group">
+  <div class='form-text-wrap'>
+    <label class="form-text">短所</label>
+  </div>
+  <%= f.text_field :defect, class:"input-default", id:"defect", placeholder:"記入欄" %>
+</div>
