@@ -1,0 +1,44 @@
+<div class="message">
+  <div class="message-user">
+
+    <% if message.user_id == @user.id %>
+
+      <div class="my-message">
+        <div class="right-message">
+          <div class="message-contents">
+              <div class="message-text"><%= message.message %></div>
+          </div>
+            <%= image_tag message.image, class: 'message-image' if message.image.attached? %>
+        </div>
+      </div>
+
+    <% else %>
+
+      <div class="partner-message">
+        <div class="partner-image">
+          <%if @partner.profile.image.present? %> 
+            <%= image_tag @partner.profile.image, class:"partner-img" if @partner.profile.image.attached? %>
+          <% elsif @partner.gender == "male" %>
+            <%= image_tag 'mens_silhouette.png', class: "partner-img" %>
+          <% else %>
+            <%= image_tag 'radies_silhouette.png', class: "partner-img" %>
+          <% end %>
+        </div>
+
+        <div class="message-box">
+          <div class="left-message">
+            <div class="message-text"><%= message.message %></div>
+          </div>
+          
+          <div class="left-image-box">
+            <%= image_tag message.image, class: 'left-image' if message.image.attached? %>
+          </div>
+        </div>
+      </div>
+
+      
+
+    <% end %>
+
+  </div>
+</div>

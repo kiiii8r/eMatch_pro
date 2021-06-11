@@ -1,26 +1,62 @@
-<h2>Log in</h2>
+<%= render "shared/front-header"%>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<div class ='main-contents'>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+  <%= form_with model: @user, url: user_session_path, class: 'registration-main', local: true do |f| %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class='contents'>
+      <div class='contents-indication'>
+        <div class='form-header'>
+          <h1 class='form-header-text'>
+            会員情報入力
+          </h1>
+        </div>
+
+        <%= link_to  user_facebook_omniauth_authorize_path, method: :post do %>
+          <i class="fab fa-facebook-f"></i>
+        <% end %>
+
+        <%= link_to user_google_oauth2_omniauth_authorize_path, method: :post do %>
+         <i class="fab fa-google"></i>
+        <% end %>
+
+        <%= link_to user_twitter_omniauth_authorize_path, method: :post do %>
+          <i class="fab fa-twitter"></i>
+        <% end %>
+
+        <div class='login-flash-message'>
+          <%= flash[:notice] %>
+          <%= flash[:alert] %>
+        </div>
+
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">メールアドレス</label>
+          </div>
+
+          <%= f.email_field :email, class:"input-default", id:"email", placeholder:"Enter your email address", autofocus: true %>
+
+        </div>
+
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">パスワード</label>
+          </div>
+
+          <%= f.password_field :password, class:"input-default", id:"password", placeholder:"Enter your password" %>
+
+        </div>
+
+        <div class='login-btn-'>
+
+          <%= f.submit "ログイン" ,class:"login-btn" %>
+
+        </div>
+      </div>
     </div>
+
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+<%= render "shared/front-footer"%>

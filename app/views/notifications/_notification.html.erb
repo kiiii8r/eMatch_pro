@@ -1,0 +1,72 @@
+  <div class="notice-list">
+    <div class="notice-block">
+
+      <% visiter_user(notification) %>
+
+      <%= link_to user_path(notification.visiter) do %>
+
+        <div class="visiter-image">
+
+            <%if @visiter.profile.image.present? %> 
+
+              <%= image_tag @visiter.profile.image, class:"visiter-img" if @visiter.profile.image.attached? %>
+
+            <% elsif @visiter.gender == "male" %>
+
+              <%= image_tag 'mens_silhouette.png', class: "visiter-img" %>
+
+            <% else %>
+
+              <%= image_tag 'radies_silhouette.png', class: "visiter-img" %>
+
+            <% end %>
+
+          </div>
+
+      <% end %>
+
+    <div class="notice-right">
+
+      <% if notification.message_id.present? %>
+
+       <div class="notice-content">
+        
+          <%= notification_form(notification, @visiter) %>
+
+          <div class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)} )" %></div>
+        </div>
+
+        <br>
+
+        <div class="new-message">
+
+          <% if notification.message.present? %>
+
+            <div class="notice-message" ><%= notification.message.message %></div>
+
+          <% end %>
+
+          <% if notification.message.image.present? %>
+
+            <div><%=image_tag notification.message.image, class: "notice-image" %></div>
+
+          <% end %>
+
+        </div>
+
+      <% elsif notification.relationship_id.present? %>
+
+        <div class="notice-relation">
+
+          <div class="relation-name">
+            <%= notification_form(notification, @visiter) %>
+          </div>
+
+          <div class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)} )" %></div>
+        </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

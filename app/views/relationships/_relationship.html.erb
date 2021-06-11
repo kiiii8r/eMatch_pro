@@ -1,0 +1,47 @@
+<div class="follow-list">
+
+  <div class="follow-block">
+
+    <% follow_user(relationship) %>
+
+    <%= link_to user_path(relationship.follow_id) do %>
+
+    <div class="follow-image">
+
+      <%if @follow.profile.image.present? %> 
+
+        <%= image_tag @follow.profile.image, class:"follow-img" if @follow.profile.image.attached? %>
+
+      <% elsif @follow.gender == "male" %>
+
+        <%= image_tag 'mens_silhouette.png', class: "follow-img" %>
+
+      <% else %>
+
+        <%= image_tag 'radies_silhouette.png', class: "follow-img" %>
+
+      <% end %>
+
+    </div>
+
+    <% end %>
+
+  </div>
+
+  <div class="follow-right">
+    
+    <div class="follow-name">
+      <%= @follow.nickname %>さん
+    </div>
+
+    <div class="follow-status">
+      <div class="follow-gender">
+        性別: <%= @follow.gender %>
+      </div>
+
+      <div class="follow-age">
+        年齢: <%= @follow.age %>
+      </div>
+    </div>
+  </div>
+</div>
