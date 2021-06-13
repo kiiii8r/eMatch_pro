@@ -50,7 +50,7 @@ test:
 #
 production:
   <<: *default
-  database: eMatch_pro_production
+  database: eMatch_pro
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /tmp/mysql.sock
+  socket: /var/lib/mysql/mysql.sock
