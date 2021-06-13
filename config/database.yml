@@ -50,7 +50,7 @@ test:
 #
 production:
   <<: *default
-  <% if Rails.application.credentials.database.present? %>
+  <% if Rails.env.production? %>
     database: asima_production
     socket: <%= Rails.application.credentials.database[:socket] %>
     username: <%= Rails.application.credentials.database[:username] %>
