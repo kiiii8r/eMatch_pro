@@ -49,8 +49,8 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-db:
+  <<: *default
   database: eMatch_pro
   username: root
-  password: Mitarashi1!
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
